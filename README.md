@@ -21,3 +21,13 @@ The MQTT client creates and publishes its topics with formatted data, which are 
 There is no need to manually create entities or plan the data received in advance. 
 
 The user can simply organize these entities into custom dashboards for real-time visualization.
+
+**Topic example**
+
+* One config topic for the autodiscovery HA
+* One state topic for the relatime value
+  
+Below, what you can see once you are connected to the Cloud Broker (in my case, HiveMQ):
+
+<img width="597" height="259" alt="image" src="https://github.com/user-attachments/assets/587d1472-ac84-4f31-bf16-4e9fafa251a7" />
+
