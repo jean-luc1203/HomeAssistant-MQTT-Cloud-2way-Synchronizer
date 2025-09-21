@@ -1,0 +1,64 @@
+---
+configuration:
+  # JK-BMS Configuration Section
+  jkbms_path:
+    name: "🟪 JK-BMS → Serial Port Path"
+    description: "Path to the serial port where the JK-BMS is connected (Menu: Settings-Hardware-All hardware)."
+    
+  jkbms_count:
+    name: "🟪 JK-BMS → Number of BMS Modules"
+    description: "Number of JK-BMS modules to query. They must be connected to the RS485 bus (value: 1 to 15)."
+    
+  use_gateway:
+    name: "🟨 JK-BMS → Use TCP Gateway"
+    description: "Enable communication via an IP gateway (TCP Gateway) instead of the local serial port."
+    
+  gateway_ip_port:
+    name: "🟨 JK-BMS → Gateway IP Address + Port"
+    description: "IP address + network gateway port for remote access to JK-BMS (e.g. 192.168.1.100:5000)."
+    
+  communication_debug:
+    name: "🔴 JK-BMS → Debug Communication"
+    description: "Enable detailed display of communication logs (for diagnostics or support)."
+    
+  bms_broadcasting:
+    name: "🔴 JK-BMS → BMS Broadcasting"
+    description: "In this mode, the BMS publishes aggregated data by itself. It must be Master (switch to 0000)."
+    
+  CAN_bus_usage:
+    name: "🔴 JK-BMS → CAN Bus Usage"
+    description: "Enable communication and data transmission on the CAN bus (if physically connected)."
+
+  # MQTT Configuration Section
+  mqttadresse_port: 
+    name: "🚩 MQTT → Broker Address + Port"
+    description: "MQTT broker address + port (e.g. core-mosquitto.local.hass.io:1883 or local IP + port)."
+    
+  mqttuser:
+    name: "🚩 MQTT → Username"
+    description: "Username to connect to the MQTT broker."
+    
+  mqttpass:
+    name: "🚩 MQTT → Password"
+    description: "Password associated with the MQTT user."
+
+  # Cloud MQTT Broker Configuration Section
+  cloud_broker:
+    name: "✴️ Cloud MQTT → Enable MQTT Cloud"
+    description: "Enable secure Cloud connection (TLS) for access (e.g. HiveMQ Cloud broker)."
+
+  cloud_broker_adress_port: 
+    name: "✴️ Cloud MQTT → Broker Address + Port"
+    description: "MQTT Cloud broker address + port (e.g. bca204074b374abvcdefbae5b858.s1.eu.hivemq.cloud:8883)."
+    
+  cloud_broker_user:
+    name: "✴️ Cloud MQTT → Username"
+    description: "Username to connect to the MQTT Cloud broker."
+    
+  cloud_broker_pass:
+    name: "✴️ Cloud MQTT → Password"
+    description: "Password associated with the MQTT Cloud user."
+
+  cloud_HA_long_term_access_tokens:
+    name: "✴️ HA Long-term Access Token"
+    description: "Persistent token created in the <HA-User-Security> menu. Allows the addon to communicate with the HA API."
