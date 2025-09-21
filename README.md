@@ -31,3 +31,9 @@ Below, what you can see once you are connected to the Cloud Broker (in my case, 
 
 <img width="597" height="259" alt="image" src="https://github.com/user-attachments/assets/587d1472-ac84-4f31-bf16-4e9fafa251a7" />
 
+Here is what this will automatically create in Home Assistant.
+The data is refreshed as soon as it is modified by the source (i.e., the MQTT client).
+
+<img width="986" height="337" alt="image" src="https://github.com/user-attachments/assets/70c4b1de-0665-468a-b6aa-b44468bff202" />
+
+
