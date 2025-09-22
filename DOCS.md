@@ -1,290 +1,39 @@
-# Smartphoton JK-BMS-RS485 & CAN Add-on Home Assistant
-**This code is based on [node red V4](https://nodered.org/)**
+## HAOS Encrypted MQTT Cloud Topic Synchronizer
 
-**Smartphoton JK-BMS-RS485 & CAN bus** [(*JKong company*)](https://jikongbms.com/product-category/smart-bms/smart-lifepo4-bms/) is a BMS management add-on that use an RS485 or CAN port (wired)
+**Description**
 
-**BMS Type**
+This HAOS add-on module establishes a secure TLS connection to a cloud MQTT broker. 
+It enables transparent bidirectional synchronization between HAOS and external MQTT clients.
+The MQTT client freely creates topics and their content on the broker.
 
-* [x] **PB2A16S20P**
-* [x] **PB2A16S15P**
-* [x] **PB1A16S15P**
-* [x] **PB1A16S10P**
-* [x] **To be tested with new hardware Firmware V19**
+These topics are automatically recreated as dynamic entities in HAOS, with real-time updates of values. 
+Conversely, HAOS entities are published to the broker securely. 
 
----
-## <u>Explanations:</u>
-This add-on allows you to connect your Home Assistant machine (physical or virtual) to one or more Jkong BMSs.
+**No additional local infrastructure (VPN, proxy, dynamic DNS) is required**, only Internet access is sufficient. 
+Local security and data transit security are guaranteed by the **TLS** server certificate.
 
-To do this, you need to make an RJ45 cable with two wires connected as described below and plug it into the BMS.
+**Example of use**
 
-The last port from the right is OK. There are two RS485 ports reserved for communications.
-The second is used to connect the second BMS, if there is one.
+An ESP32 connected to 4G in a second home can send its data to Home Assistant via this secure MQTT cloud broker.
 
-Up to 15 BMSs can be connected to the same bus. These are straight cables.
-Data is collected approximately every 10 seconds. This will depend on the number of BMSs present.
+The MQTT client creates and publishes its topics with formatted data, which are automatically recognized and reproduced as dynamic entities in HAOS. 
 
-All data is available on the **MQTT Broker**, which allows it to be shared with other software. This is a very interesting point for those who have Jeedom, for example.
+There is no need to manually create entities or plan the data received in advance. 
 
-[![Buy Me A Coffee on ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y3YHYZP)      [!["Buy Me A Coffee on Paypal"](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/paypal.png)](https://www.paypal.com/donate/?hosted_button_id=864NCUWH4VJ8N)
+The user can simply organize these entities into custom dashboards for real-time visualization.
 
-⚠️ For the moment only stick with FTDI, CH340, or CP2102 chip that will be recognized as ttyUSBx are compatible.
-Those that create an interface of type ttyACM0 are not functional ⚠️
+**Topic example**
 
-**1) Master mode rs485**
+* One config topic for the autodiscovery HA
+* One state topic for the relatime value
+  
+Below, what you can see once you are connected to the Cloud Broker (in my case, HiveMQ):
 
-In this mode, the software interrogates each BMS (addresses from 1 to 15) via the RS485 bus to retrieve static, setup and dynamic values.
-Several parameters can be changed from the software.
+<img width="597" height="259" alt="image" src="https://github.com/user-attachments/assets/587d1472-ac84-4f31-bf16-4e9fafa251a7" />
 
-To activate Master mode, leave the parameter:
+Here is what this will automatically create in Home Assistant.
+The data is refreshed as soon as it is modified by the source (i.e., the MQTT client).
 
-	`bms_broadcasting: false`
+<img width="986" height="337" alt="image" src="https://github.com/user-attachments/assets/70c4b1de-0665-468a-b6aa-b44468bff202" />
 
-<u>**Setting address:**</u>
-Each BMS **must have a different Modbus address**. Set this to 1 if possible. Addresses are set by the position of the DIP switches on the front of the BMS communication module. There must not be an address set to 0, nor any duplicate addresses.
 
-  * The acquisition part works perfectly and has been tested.
-  * The setup part is not yet fully functional. You can use the application for this if necessary. But for the most part, it works. I have not implemented any logic between the various parameters. The Jkong application does this perfectly.
-  * The static data part is fully functional.
-<br /><br />
-
-## Adds the possibility of using an RS485 <---> ethernet or Wifi gateway (June 2025)
-
- - *Use the IP address of the gateway and the port defined in the GW to the module
-   configuration*
-
-!! Parameters modification via the gateway **has not yet been implemented**. Only via the USB port.
-
-**2) Listening mode rs485**
-
-In this mode, the software listens to the rs485 bus. One of the BMSs has been defined as the master of the rs485 bus. This involves setting all 4 small switches to the down or 0000 position.
-This is the BMS that will query the other BMSs if any are connected. This BMS will then broadcast the information it has retrieved cyclically every 5 seconds.
-It is not possible to change several parameters from the software in this mode.
-Only setup and dynamic information is retrieved.
-This mode must be used if your inverter requires one of the BMSs to be the Master Bus!
-
-To activate Listen mode, set the parameter
-
-	`bms_broadcasting: true`
-
-
-**3) CAN broadcasting**
-
-Here is the latest development (July 2025).
-**CAN bus support is now fully functional**
-
-This is the second RJ45 connector from the left.
-You must first select the CAN protocol to **option 006 - (500k) V2.0** in the jkbms application.
-
-You will need to purchase a CAN adapter. Not all adapters are compatible with Home Assistant.
-
-It should not appear under ttyUSBx in the hardware list.
-However, in a HAOS terminal, run the command: ip link
-If you see an interface named can0, it will work.
-
-Install the module, then before launching it, go to configuration and set the CANbus_usage variable to true.
-Also enter the MQTT parameters.
-
-The jkbms continuously broadcasts a certain amount of data that will be sent directly to HAOS under the MQTT device section (must be installed and functional before this module).
-
-The device should appear under the name CANbus-1. The data are inside.
-
-In CAN mode, only reading is possible. No modifications are possible.
-
-This is possible with the rs485 bus if necessary.
-
-Caution:
-Be sure to use the jkbms protocol and not victron, pylontech, or any other.
-The data is refreshed every 5 seconds
-
-⚠️
- 💫   ** Complementary and pre-configured Dashboard**  💫    
-
-You can obtain two pre-configured dashboards that you can import into your Home Assistant home automation system.
-
-This can **save you several hours of work** in formatting the data by yourself.
-
-⚠️ Have a look [here](https://ko-fi.com/s/495acc37c7)  
-
----
-## <u>Installation:</u>
-
-### Via the add-on shop
-
-Installing this add-on is no different from installing any other Home Assistant add-on.
-
-1. Add this repository in Home Assistant: `https://github.com/jean-luc1203/jkbms-rs485-addon`
-2. Install the "Smartphoton_JKBMS RS485 Home Assistant Addon"
-3. Configure the parameters according to your installation
-4. Start the module
-
-### Manual installation (for development)
-
-1. Clone this repository in the `/addons/` folder of your Home Assistant installation
-2. Reload the add-ons
-3. Install and configure
-
-
-<br /><br />
-
-
----
-## <u>Fields on the configuration tab</u>
-
-|variable                |Explanations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| path       | The path to the USB port where the Serial port RS485 adapter is connected to your machine. <u>For example</u>: */dev/serial/by-id/usb-1a86_USB_Serial-if00-port0* or */dev/ttyUSB0* if the port is unique. You can find the path to use in the Settings-System-Hardware-All Hardware menu, under ttyUSB. see the photo below                                                                                                                                                                                                                                                                     |
-|  nb_jkbms  |                                                                                                                                                                                                                                                                                                                            Number of JK BMSs to control (from 1 to 15)                                                                                                                                            |
-|  use_gateway  |                                                                                                                                                                                                                                                                                                                            Using an IP gateway ?                                                                                                                                              |
-|  gateway_ip  |                                                                                                                                                                                                                                                                                                                            address of the IP gateway                                                                                                                                        |
-|  gateway_port  |                                                                                                                                                                                                                                                                                                                            Gateway port number                                                                                                                                         |
-|  bms_broadcasting  |                                                                                                                                                                                                                                                                                                                            One of the BMSs is configured in master mode (0000)                                                                                                                             
-|  CAN bus usage  |                                                                                                                                                                                                                                                                                                                            Using the CAN bus broadcasting (not yet implemented)                                                                                                                              
-|  mqttaddress  |                                                                                                                                                                                                 The IP address or DNS name of your MQTT broker. By default, this will be the internal address of HAOS                                                                                                                       
-|  mqttport   |                                                                                                                                                                                                 Port number of the MQTT broker             
-|  mqttuser  |                                                                                                                                                                                                 User name for MQTT authentication broker                                               
-|  mqttpass  |                                                                                                                                                                                                Password for MQTT authentication. **Put it in quotation marks**                                                                                                                                       |
-
-# <u>Yaml exemple:</u>
-
->     >     jkbms:
->     >       jkbms_path: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
->     >       jkbms_count: 2
->     >       use_gateway: false
->     >       gateway_ip: 192.168.1.238
->     >       gateway_port: 8887
->     >       bms_broadcasting: true
->     >       CAN bus usage: false
->     >     mqtt:
->     >       mqttadresse: core-mosquitto.local.hass.io
->     >       mqttport: 1883
->     >       mqttuser: youruser
->     >       mqttpass: yourpassword
->     >     ssl: false
->     >     certfile: fullchain.pem
->     >     keyfile: privkey.pem
-
-## <u>Use</u>
-
-- BMS appear in MQTT `devices`
-
-![BMS-in-MQTT-devices](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/JKBMS-in-MQTT-devices.png)
-
-- Entities created
-
-![JKBMS-entities](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/JKBMS-entities.png)
-
-**example**
-
-
----
-## MQTT (required)
----
-You must have an mqtt broker (you can install it via the addon shop. [Addon Mosquitto broker][addon-mqtt])
-You will then need to add mqtt integration (see mqtt doc)
-
----
-## cable assembly
-
-` - RS485 bus:`
-
-I used this type of adapter:
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/Cable-RS485-1.jpg)
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/Cable-RS485-2.jpg)
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/Fonctionnement-LED-cable-rs485.gif)
-
-RJ45:
-
-Pin 1 <-------> B
-
-Pin 2 <-------> A
-
-No need of GND in my case
-
-
-` - CAN Bus:`
-
-I used this type of adapter:
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/CANdo-adaptator.jpg)
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/CAN-JKBMS-Pinout.jpg)
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/Cable-JKBMS-to-CANdo-adapteur.jpg)
-
-
----
-## Other options
----
-### Option: `Log Level`
-The `log_level` option controls the level of log output by the addon and can
-be changed to be more or less verbose, which might be useful when you are
-dealing with an unknown issue. Possible values are:
-
-- `trace`: Show every detail, like all called internal functions.
-- `debug`: Shows detailed debug information.
-- `info`: Normal (usually) interesting events.
-- `warning`: Exceptional occurrences that are not errors.
-- `error`: Runtime errors that do not require immediate action.
-- `fatal`: Something went terribly wrong. Add-on becomes unusable.
-
-Please note that each level automatically includes log messages from a
-more severe level, e.g., `debug` also shows `info` messages. By default,
-the `log_level` is set to `info`, which is the recommended setting unless
-you are troubleshooting.
-
----
-
-## Changelog & Releases
----
-
-`MAJOR.MINOR.PATCH`
-
-- `MAJOR`: Incompatible or major changes.
-- `MINOR`: Backwards-compatible new features and enhancements.
-- `PATCH`: Backwards-compatible bugfixes and package updates.
-
-![USB Material select](https://raw.githubusercontent.com/jean-luc1203/jkbms-rs485-addon/main/images/USB-choice.png)
-
-## Support
----
-- [Github][depot-mqtt]
-- [Site][site]
-- [Forum][forum]
-- [Documentations Github][documentation]
-
-
-## Authors & contributors
----
-Smartphoton JK-BMS-RS485, Jean-luc - 2025
-
-The original setup of this repository is by [Franck Nijhof][frenck].
-
-
-
-
-[addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[addon-licence]: https://domosimple.eu/licence.php
-[addon-config]: http://domosimple.eu/onduleur/
-[addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nodered&repository_url=https%3A%2F%2Fgithub.com%2Fhassio-addons%2Frepository
-[addon-mqtt]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto&repository_url=https%3A%2F%2Fgithub.com%2Fhassio-addons%2Frepository
-[depot-mqtt]: https://github.com/jean-luc1203/smartphoton-ha-addon/
-[site]: https://smartphoton.fr/
-[forum]: http://domosimple.eu/forum/
-[documentation]: https://github.com/jean-luc1203/Smartphoton-Documentation
-[alpine-packages]: https://pkgs.alpinelinux.org/packages
-[contributors]: https://github.com/hassio-addons/addon-node-red/graphs/contributors
-[discord-ha]: https://discord.gg/c5DvZ4e
-[discord]: https://discord.me/hassioaddons
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-node-red/55023?u=frenck
-[frenck]: https://github.com/frenck
-[issue]: https://github.com/hassio-addons/addon-node-red/issues
-[node-red-nodes]: https://flows.nodered.org/?type=node&num_pages=1
-[nodered-docs]: https://nodered.org/docs
-[nodered]: https://nodered.org
-[npm-packages]: https://www.npmjs.com
-[reddit]: https://reddit.com/r/homeassistant
-[releases]: https://github.com/hassio-addons/addon-node-red/releases
-[semver]: http://semver.org/spec/v2.0.0.htm
