@@ -1,8 +1,8 @@
 ---
-name: "HAOS Encrypted 2 voies  MQTT Cloud Topic Synchronizer"
+name: "MQTT TLS bi-directional Cloud Sync"
 version: 1.0.0
 slug: "HomeAssistant-MQTT-Cloud-2way-Synchronizer"
-description: Establishes a secure TLS connection to a cloud MQTT broker. Enabling transparent bidirectional synchronization between HAOS and external MQTT clients
+description: Synchronization between HAOS Entities and MQTT Cloud Broker
 url: https://domosimple.eu/forum/
 ingress: false
 ingress_stream: false
@@ -19,9 +19,9 @@ privileged:
   - NET_ADMIN
   - SYS_RAWIO
 ports:
-  "1891/tcp": 1891
+  "1892/tcp": 1892
 ports_description:
-  "1891/tcp": Web interface
+  "1892/tcp": Web interface
 hassio_api: true
 hassio_role: manager
 homeassistant_api: true
@@ -35,14 +35,6 @@ map:
   - ssl
 
 options:
-  # JK-BMS Configuration
-  jkbms_path: "/dev/serial/by-id/usb-xxxx_USB_Serial-abcdefghij"
-  jkbms_count: 1
-  use_gateway: false
-  gateway_ip_port: "192.168.1.100:5000"
-  communication_debug: false
-  bms_broadcasting: false
-  CAN_bus_usage: false
 
   # MQTT Configuration
   mqttadresse_port: "core-mosquitto.local.hass.io:1883"
@@ -57,14 +49,6 @@ options:
   cloud_HA_long_term_access_tokens: "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 schema:
-  # JK-BMS Configuration
-  jkbms_path: str
-  jkbms_count: int(1,10)?
-  use_gateway: bool
-  gateway_ip_port: str?
-  communication_debug: bool
-  bms_broadcasting: bool
-  CAN_bus_usage: bool
 
   # MQTT Configuration
   mqttadresse_port: str?
