@@ -1,6 +1,6 @@
 console.log("✅ config.js is being loaded");
 
-const config = require("/config/smartphoton_MQTT/settings.js");
+const config = require("/config/mqtt-cloud-synchronizer/settings.js");
 
 const fs = require("fs");
 const options = JSON.parse(fs.readFileSync("/data/options.json", "utf8"));
@@ -12,9 +12,9 @@ if ("theme" in options && options.theme !== "default") {
 
 config.debugUseColors = false;
 config.flowFile = "flows.json";
-config.nodesDir = "/config/smartphoton_MQTT/nodes";
+config.nodesDir = "/config/mqtt-cloud-synchronizer/nodes";
 config.uiPort = 1892;
-config.userDir = "/config/smartphoton_MQTT/";
+config.userDir = "/config/mqtt-cloud-synchronizer/";
 config.httpNodeRoot = "/endpoint";
 
 console.log("✅ Node-RED is using userDir =", config.userDir);
@@ -27,7 +27,7 @@ config.contextStorage = {
   default: {
     module: 'localfilesystem',
     config: {
-      dir: '/config/smartphoton_MQTT/global-variables',
+      dir: '/config/mqtt-cloud-synchronizer/global-variables',
       flushInterval: '5'
     }
   }

@@ -1,6 +1,6 @@
 ## HAOS Encrypted MQTT Cloud Topic Synchronizer
 
-**Description**
+**<u>Description:</u>**
 
 This HAOS add-on module establishes a secure TLS connection to a cloud MQTT broker. 
 It enables transparent bidirectional synchronization between HAOS and external MQTT clients.
@@ -12,7 +12,7 @@ Conversely, HAOS entities are published to the broker securely.
 **No additional local infrastructure (VPN, proxy, dynamic DNS) is required**, only Internet access is sufficient. 
 Local security and data transit security are guaranteed by the **TLS** server certificate.
 
-**Example of use**
+<u>Example of use:</u>
 
 An ESP32 connected to 4G in a second home can send its data to Home Assistant via this secure MQTT cloud broker.
 
@@ -22,7 +22,7 @@ There is no need to manually create entities or plan the data received in advanc
 
 The user can simply organize these entities into custom dashboards for real-time visualization.
 
-**Topic example**
+<u>Topic example:</u>
 
 * One config topic for the autodiscovery HA
 * One state topic for the relatime value

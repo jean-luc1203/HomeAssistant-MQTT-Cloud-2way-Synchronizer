@@ -1,9 +1,9 @@
 ---
 name: "MQTT TLS bi-directional Cloud Sync"
 version: 1.0.0
-slug: "HomeAssistant-MQTT-Cloud-2way-Synchronizer"
+slug: "mqtt-cloud-synchronizer"
 description: Synchronization between HAOS Entities and MQTT Cloud Broker
-url: https://domosimple.eu/forum/
+url: https://github.com/jean-luc1203/HomeAssistant-MQTT-Cloud-2way-Synchronizer
 ingress: false
 ingress_stream: false
 panel_icon: mdi:sitemap
@@ -35,21 +35,18 @@ map:
   - ssl
 
 options:
-
   # MQTT Configuration
   mqttadresse_port: "core-mosquitto.local.hass.io:1883"
   mqttuser: "username"
   mqttpass: "password"
 
   # Cloud MQTT Broker Configuration
-  cloud_broker: false
   cloud_broker_adress_port: "bca204074b374abvcdefbae5b858.s1.eu.hivemq.cloud:8883"
   cloud_broker_user: "username"
   cloud_broker_pass: "password"
   cloud_HA_long_term_access_tokens: "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 schema:
-
   # MQTT Configuration
   mqttadresse_port: str?
   mqttuser: str?

@@ -6,53 +6,53 @@
 # ==============================================================================
 
 # Assure que la configuration existe
-if ! bashio::fs.directory_exists '/config/smartphoton_MQTT/'; then
-    mkdir -p /config/smartphoton_MQTT/nodes \
+if ! bashio::fs.directory_exists '/config/mqtt-cloud-synchronizer/'; then
+    mkdir -p /config/mqtt-cloud-synchronizer/nodes \
         || bashio::exit.nok "Failed to create node-red configuration directory"
 
     # Copie les fichiers modèles
-    cp /etc/node-red/flows.json /config/smartphoton_MQTT/
-    cp /etc/node-red/settings.js /config/smartphoton_MQTT/
+    cp /etc/node-red/flows.json /config/mqtt-cloud-synchronizer/
+    cp /etc/node-red/settings.js /config/mqtt-cloud-synchronizer/
 
     # Création d'un ID de flow aléatoire
     id=$(node -e "console.log((1+Math.random()*4294967295).toString(16));")
-    sed -i "s/%%ID%%/${id}/" "/config/smartphoton_MQTT/flows.json"
+    sed -i "s/%%ID%%/${id}/" "/config/mqtt-cloud-synchronizer/flows.json"
 fi
 
-# Copier le fichier configentities_list.json s'il n'existe pas déjà 
+# Copier le fichier configentities_list.json s'il n'existe pas déjà
 # Il est utilisé pour le MQTT Cloud
-if ! bashio::fs.file_exists '/config/smartphoton_MQTT/configentities_list.json'; then
+if ! bashio::fs.file_exists '/config/mqtt-cloud-synchronizer/configentities_list.json'; then
     cp /opt/configentities_list.json /config/configentities_list.json \
         || bashio::exit.nok "Failed to copy configentities_list.json"
     bashio::log.info "configentities_list.json copied to /config/"
 fi
 
 # Vérification de version
-if ! bashio::fs.file_exists '/config/smartphoton_MQTT/version'; then
-    touch /config/smartphoton_MQTT/version
+if ! bashio::fs.file_exists '/config/mqtt-cloud-synchronizer/version'; then
+    touch /config/mqtt-cloud-synchronizer/version
     VERSION=$(bashio::addon.version)
-    echo $VERSION >> /config/smartphoton_MQTT/version
-    chmod 775 /config/smartphoton_MQTT/version
+    echo $VERSION >> /config/mqtt-cloud-synchronizer/version
+    chmod 775 /config/mqtt-cloud-synchronizer/version
     bashio::log.info "${VERSION}"
 else
-    VERSIONOLD=$(cat /config/smartphoton_MQTT/version)
+    VERSIONOLD=$(cat /config/mqtt-cloud-synchronizer/version)
     VERSION=$(bashio::addon.version)
     if [ $VERSIONOLD != $VERSION ]; then
         bashio::log.info "Mise a jour de la nouvelle version"
-        if bashio::fs.file_exists '/config/smartphoton_MQTT/flows.backup'; then
-            rm /config/smartphoton_MQTT/flows.backup
+        if bashio::fs.file_exists '/config/mqtt-cloud-synchronizer/flows.backup'; then
+            rm /config/mqtt-cloud-synchronizer/flows.backup
         fi
-        mv /config/smartphoton_MQTT/flows.json /config/smartphoton_MQTT/flows.backup
-        cp /etc/node-red/flows.json /config/smartphoton_MQTT/
+        mv /config/mqtt-cloud-synchronizer/flows.json /config/mqtt-cloud-synchronizer/flows.backup
+        cp /etc/node-red/flows.json /config/mqtt-cloud-synchronizer/
     fi
 fi
 
 # Remplace le fichier flows par celui d'origine
-if bashio::fs.file_exists '/config/smartphoton_MQTT/flows.backup'; then
-    rm /config/smartphoton_MQTT/flows.backup
+if bashio::fs.file_exists '/config/mqtt-cloud-synchronizer/flows.backup'; then
+    rm /config/mqtt-cloud-synchronizer/flows.backup
 fi
-mv /config/smartphoton_MQTT/flows.json /config/smartphoton_MQTT/flows.backup
-cp /etc/node-red/flows.json /config/smartphoton_MQTT/
+mv /config/mqtt-cloud-synchronizer/flows.json /config/mqtt-cloud-synchronizer/flows.backup
+cp /etc/node-red/flows.json /config/mqtt-cloud-synchronizer/
 
 # Désinstallation des packages Node-RED conflictuels
 cd /config || bashio::exit.nok "Could not change directory to Node-RED"

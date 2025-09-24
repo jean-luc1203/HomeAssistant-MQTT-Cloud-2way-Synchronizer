@@ -1,5 +1,5 @@
 {
-  "name": "Smartphoton HAOS Encrypted bidirectional MQTT Cloud Topic Synchronizer",
+  "name": "Encrypted bidirectional MQTT Cloud Topic Synchronizer",
   "udev": true,
   "url": "https://github.com/jean-luc1203/HomeAssistant-MQTT-Cloud-2way-Synchronizer",
   "maintainer": "Smartphoton - Jean-Luc Martinelli - JLM - 2025"

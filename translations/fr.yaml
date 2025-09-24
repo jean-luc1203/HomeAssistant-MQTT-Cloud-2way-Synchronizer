@@ -2,22 +2,18 @@
 configuration:
   # MQTT Configuration Section
   mqttadresse_port: 
-    name: "🚩 MQTT → Adresse + port du Broker"
+    name: "🟪 MQTT → Adresse + port du Broker"
     description: "Adresse + port du broker MQTT (ex: core-mosquitto.local.hass.io:1883 ou IP locale + port)."
     
   mqttuser:
-    name: "🚩 MQTT → Nom d'utilisateur"
+    name: "🟪 MQTT → Nom d'utilisateur"
     description: "Nom d'utilisateur pour se connecter au broker MQTT."
     
   mqttpass:
-    name: "🚩 MQTT → Mot de passe"
+    name: "🟪 MQTT → Mot de passe"
     description: "Mot de passe associé à l'utilisateur MQTT."
 
   # Cloud MQTT Broker Configuration Section
-  cloud_broker:
-    name: "✴️ Cloud MQTT → Activer MQTT Cloud"
-    description: "Activer la connexion sécurisée Cloud (TLS) pour l'accès (par exemple le broker HiveMQ Cloud)."
-
   cloud_broker_adress_port: 
     name: "✴️ Cloud MQTT → Adresse du Broker + port"
     description: "Adresse + port du broker MQTT Cloud (ex: bca204074b374abvcdefbae5b858.s1.eu.hivemq.cloud:8883)."
