@@ -1,6 +1,6 @@
 ## HAOS Encrypted MQTT Cloud Topic Synchronizer
 
-<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2af12d14-5415-42e7-932d-dd29bc1bd79a" />
+<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/2af12d14-5415-42e7-932d-dd29bc1bd79a" />
 
 
 **<u>Description:</u>**
@@ -30,9 +30,9 @@ The user can simply organize these entities into custom dashboards for real-time
 * One config topic for the autodiscovery HA
 * One state topic for the relatime value
 
-#Schematic diagram
+#Schematic diagram (click to enlarge)
 
-
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/73a619d5-72e6-4fe1-90f6-ef6b881b06c2" />
 
   
 Below, what you can see once you are connected to the Cloud Broker (in my case, HiveMQ):
