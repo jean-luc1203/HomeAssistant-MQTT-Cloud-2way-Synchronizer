@@ -1,5 +1,12 @@
 [
     {
+        "id": "0f3c5bd285141d40",
+        "type": "tab",
+        "label": "Warning - Avertissement",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "b1ca67b21089b915",
         "type": "tab",
         "label": "Initialisations MQTT-Cloud",
@@ -40,7 +47,7 @@
         "x": 28,
         "y": 73,
         "w": 864,
-        "h": 394
+        "h": 354
     },
     {
         "id": "6c19eb9e84cdf38b",
@@ -109,20 +116,15 @@
             "fill-opacity": "0.36"
         },
         "nodes": [
-            "fc6a7dbdb2978cae",
             "f376639c469c1a76",
             "58623a0b92166652",
-            "2d4c8697844d115a",
-            "d2e51bdcb36885e6",
-            "e3da12efa423b488",
-            "8c259c144bc281fb",
-            "f8c85e619c304aa7",
-            "e9140fbdd804c122"
+            "e9140fbdd804c122",
+            "8786546418b5a32c"
         ],
         "x": 14,
         "y": 99,
-        "w": 852,
-        "h": 162
+        "w": 732,
+        "h": 122
     },
     {
         "id": "b3b9f5f06f6d39ed",
@@ -138,12 +140,11 @@
             "1c0e7e37c721e7c4",
             "7fc8c29d22abed44",
             "e5c7a98373192fa3",
-            "c9e8d64a7cea697b",
-            "5cf675dc2470231c"
+            "c9e8d64a7cea697b"
         ],
         "x": 14,
-        "y": 299,
-        "w": 1032,
+        "y": 259,
+        "w": 892,
         "h": 82
     },
     {
@@ -160,37 +161,38 @@
             "46a372a620414d76",
             "7300a1fc5fc21865",
             "ba41b00845d7113a",
-            "10ed6574b57f545d",
             "d996108243619012",
             "24b002ddce3a8bf8",
             "9cb68cad2f001d89",
-            "fae0cf06c8864182",
-            "b372af83215826ef"
+            "b372af83215826ef",
+            "f7d1fb6492be025f"
         ],
         "x": 14,
-        "y": 419,
-        "w": 1012,
+        "y": 359,
+        "w": 892,
         "h": 182
     },
     {
-        "id": "4c6743f249067968",
+        "id": "53657bce92f7b1ab",
         "type": "group",
-        "z": "a1c7ea549b32dfc9",
-        "name": "Pour debugger ",
+        "z": "cae51940ae4cfae7",
+        "name": "Get topics from Cloud Broker",
         "style": {
-            "stroke": "#777777",
+            "stroke": "#0070c0",
             "label": true,
-            "color": "#0070c0"
+            "color": "#000000"
         },
         "nodes": [
-            "aee2df6b02ea12cb",
-            "a3206be9cb219e6f",
-            "922be1c52ff787bb"
+            "3e17af36f9437b17",
+            "96c1c9a46dd9623e",
+            "9d14c08ce76587a6",
+            "a1f84e21acec3079",
+            "7f9fde987a42e6ec"
         ],
-        "x": 54,
-        "y": 639,
-        "w": 352,
-        "h": 122
+        "x": 64,
+        "y": 139,
+        "w": 742,
+        "h": 142
     },
     {
         "id": "c1fd93cd8f38ea7c",
@@ -209,16 +211,12 @@
             "355fec0a2e1aaf7a",
             "b82078ca27edc9db",
             "58adbc8abf20aab0",
-            "4e25b5fa6500606e",
-            "66ce0bd5261eb149",
-            "63efeee1a97e3bb9",
-            "323bc1fdf8eb4b0e",
-            "468d5c1a95681d8d"
+            "4e25b5fa6500606e"
         ],
         "x": 54,
         "y": 259,
-        "w": 772,
-        "h": 182
+        "w": 752,
+        "h": 142
     },
     {
         "id": "c8e26f4ca5e76e36",
@@ -251,57 +249,27 @@
         "broker": "Cloud-MQTT-Broker",
         "port": "8883",
         "tls": "",
-        "clientid": "JK-BMS",
+        "clientid": "",
         "autoConnect": false,
         "usetls": true,
         "protocolVersion": "5",
         "keepalive": 60,
         "cleansession": true,
         "autoUnsubscribe": true,
-        "birthTopic": "",
+        "birthTopic": "HomeAssistant-MQTT-Cloud-2way-Synchronizer",
         "birthQos": "0",
         "birthRetain": "false",
-        "birthPayload": "",
+        "birthPayload": "Online",
         "birthMsg": {},
         "closeTopic": "",
         "closeQos": "0",
         "closeRetain": "false",
         "closePayload": "",
         "closeMsg": {},
-        "willTopic": "",
+        "willTopic": "HomeAssistant-MQTT-Cloud-2way-Synchronizer",
         "willQos": "0",
         "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "0f46412e148c8e44",
-        "type": "mqtt-broker",
-        "name": "HiveMQ Cloud",
-        "broker": "797e7d5e36644ae8b5d8988b50b3b48f.s1.eu.hivemq.cloud",
-        "port": "8883",
-        "tls": "",
-        "clientid": "nodered-cloud",
-        "autoConnect": true,
-        "usetls": true,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
+        "willPayload": "Connection-lost",
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
@@ -315,24 +283,94 @@
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
-        "protocolVersion": "4",
+        "protocolVersion": "5",
         "keepalive": "60",
         "cleansession": true,
         "autoUnsubscribe": true,
-        "birthTopic": "",
+        "birthTopic": "HomeAssistant-MQTT-Cloud-2way-Synchronizer",
         "birthQos": "0",
-        "birthPayload": "",
+        "birthPayload": "Online",
         "birthMsg": {},
         "closeTopic": "",
         "closeQos": "0",
         "closePayload": "",
         "closeMsg": {},
-        "willTopic": "",
+        "willTopic": "HomeAssistant-MQTT-Cloud-2way-Synchronizer",
         "willQos": "0",
-        "willPayload": "",
+        "willPayload": "Connection-lost",
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "438bd283fc7ed79f",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "This software is the property of JLM . It is subject to intellectual property and copyright laws.",
+        "info": "",
+        "x": 330,
+        "y": 134,
+        "wires": []
+    },
+    {
+        "id": "25c51ee819816528",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "copyright ©JLM september 2025",
+        "info": "",
+        "x": 150,
+        "y": 74,
+        "wires": []
+    },
+    {
+        "id": "ff1ece7fe3612315",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "Only JLM has the right to modify all or part of this software.",
+        "info": "",
+        "x": 230,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2c25611ae5eaf661",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "HAOS Encrypted MQTT Cloud Topic bidirectional Synchronizer. Automatic HA entities creation from external sources",
+        "info": "",
+        "x": 410,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e57773e891517763",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "Do not transmit, copy or modify this software without the written consent of its authors.",
+        "info": "",
+        "x": 320,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1886fc8967eaf339",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "According to article L335-3 of the French Intellectual Property Code, “infringement of one of the rights of the author of a software program as defined in article L122-6” constitutes an offence of counterfeiting.",
+        "info": "",
+        "x": 690,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "212b75fb3d14df62",
+        "type": "comment",
+        "z": "0f3c5bd285141d40",
+        "name": "Any infringement of a software author's rights can therefore be qualified as counterfeiting.",
+        "info": "",
+        "x": 330,
+        "y": 440,
+        "wires": []
     },
     {
         "id": "80a0031e2a8dbfbc",
@@ -430,8 +468,7 @@
         "wires": [
             [
                 "4e25b5fa6500606e",
-                "0c319b0244658cad",
-                "468d5c1a95681d8d"
+                "0c319b0244658cad"
             ]
         ]
     },
@@ -460,7 +497,7 @@
         "z": "b1ca67b21089b915",
         "g": "c1fd93cd8f38ea7c",
         "name": "debug 23",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -822,102 +859,6 @@
         ]
     },
     {
-        "id": "66ce0bd5261eb149",
-        "type": "mqtt out",
-        "z": "b1ca67b21089b915",
-        "g": "c1fd93cd8f38ea7c",
-        "name": "Local MQTT",
-        "topic": "",
-        "qos": "0",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "94b7314a.817d4",
-        "x": 730,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "63efeee1a97e3bb9",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "c1fd93cd8f38ea7c",
-        "name": "Publie \"Online\"",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 180,
-        "y": 400,
-        "wires": [
-            [
-                "468d5c1a95681d8d"
-            ]
-        ]
-    },
-    {
-        "id": "323bc1fdf8eb4b0e",
-        "type": "delay",
-        "z": "b1ca67b21089b915",
-        "g": "c1fd93cd8f38ea7c",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 400,
-        "wires": [
-            [
-                "66ce0bd5261eb149"
-            ]
-        ]
-    },
-    {
-        "id": "468d5c1a95681d8d",
-        "type": "function",
-        "z": "b1ca67b21089b915",
-        "g": "c1fd93cd8f38ea7c",
-        "name": "Informe \"Online\"",
-        "func": "msg.payload = \"Online\";\nmsg.topic = \"JK-BMS-RS485-CAN-module\";\nmsg.action = \"\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 400,
-        "wires": [
-            [
-                "323bc1fdf8eb4b0e"
-            ]
-        ]
-    },
-    {
         "id": "ea424593a0b6533a",
         "type": "inject",
         "z": "b1ca67b21089b915",
@@ -1035,7 +976,7 @@
         "z": "b1ca67b21089b915",
         "g": "c8e26f4ca5e76e36",
         "name": "debug 4",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1075,24 +1016,6 @@
         "info": "",
         "x": 380,
         "y": 40,
-        "wires": []
-    },
-    {
-        "id": "fc6a7dbdb2978cae",
-        "type": "debug",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "debug 8",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 180,
         "wires": []
     },
     {
@@ -1152,82 +1075,7 @@
         "y": 180,
         "wires": [
             [
-                "8c259c144bc281fb"
-            ]
-        ]
-    },
-    {
-        "id": "2d4c8697844d115a",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "Publie \"Online\"",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 220,
-        "wires": [
-            [
-                "e3da12efa423b488"
-            ]
-        ]
-    },
-    {
-        "id": "d2e51bdcb36885e6",
-        "type": "delay",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e3da12efa423b488",
-        "type": "function",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "Informe \"Online\"",
-        "func": "msg.payload = \"Online\";\nmsg.retain = true;\nmsg.qos = 1;\nmsg.topic = \"JK-BMS-RS485-CAN-module\";\nmsg.action = \"\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 220,
-        "wires": [
-            [
-                "d2e51bdcb36885e6"
+                "8786546418b5a32c"
             ]
         ]
     },
@@ -1244,10 +1092,10 @@
         "onceDelay": 2,
         "topic": "",
         "x": 110,
-        "y": 340,
+        "y": 300,
         "wires": [
             [
-                "5cf675dc2470231c"
+                "7fc8c29d22abed44"
             ]
         ]
     },
@@ -1261,8 +1109,8 @@
         "filenameType": "str",
         "format": "utf8",
         "allProps": false,
-        "x": 480,
-        "y": 340,
+        "x": 320,
+        "y": 300,
         "wires": [
             [
                 "e5c7a98373192fa3"
@@ -1278,8 +1126,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 690,
-        "y": 340,
+        "x": 550,
+        "y": 300,
         "wires": [
             [
                 "c9e8d64a7cea697b"
@@ -1299,8 +1147,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 340,
+        "x": 780,
+        "y": 300,
         "wires": [
             []
         ]
@@ -1316,8 +1164,8 @@
         "arraySplt": 1,
         "stream": false,
         "addname": "",
-        "x": 670,
-        "y": 460,
+        "x": 530,
+        "y": 440,
         "wires": [
             [
                 "9cb68cad2f001d89"
@@ -1342,7 +1190,7 @@
         "senderr": false,
         "headers": [],
         "x": 160,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "ba41b00845d7113a"
@@ -1363,30 +1211,12 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
-                "10ed6574b57f545d",
                 "b372af83215826ef"
             ]
         ]
-    },
-    {
-        "id": "10ed6574b57f545d",
-        "type": "debug",
-        "z": "a1c7ea549b32dfc9",
-        "g": "6d8a2197f9b79fe1",
-        "name": "debug 21",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "d996108243619012",
@@ -1411,10 +1241,10 @@
         "payload": "",
         "payloadType": "date",
         "x": 110,
-        "y": 460,
+        "y": 440,
         "wires": [
             [
-                "fae0cf06c8864182"
+                "24b002ddce3a8bf8"
             ]
         ]
     },
@@ -1445,8 +1275,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 470,
-        "y": 460,
+        "x": 310,
+        "y": 440,
         "wires": [
             [
                 "46a372a620414d76"
@@ -1459,488 +1289,18 @@
         "z": "a1c7ea549b32dfc9",
         "g": "6d8a2197f9b79fe1",
         "name": "Prep. Header HTTP",
-        "func": "msg.headers = {};\nmsg.headers['Authorization'] = \"Bearer \" + msg.token;\nreturn msg;\n",
+        "func": "msg.headers = {};\nmsg.headers['Authorization'] = \"Bearer \" + msg.token;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 460,
+        "x": 780,
+        "y": 440,
         "wires": [
             [
                 "7300a1fc5fc21865"
-            ]
-        ]
-    },
-    {
-        "id": "5cf675dc2470231c",
-        "type": "switch",
-        "z": "a1c7ea549b32dfc9",
-        "g": "b3b9f5f06f6d39ed",
-        "name": "cloud_broker",
-        "property": "cloud_broker",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 270,
-        "y": 340,
-        "wires": [
-            [
-                "7fc8c29d22abed44"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "fae0cf06c8864182",
-        "type": "switch",
-        "z": "a1c7ea549b32dfc9",
-        "g": "6d8a2197f9b79fe1",
-        "name": "cloud_broker ?",
-        "property": "cloud_broker",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 280,
-        "y": 460,
-        "wires": [
-            [
-                "24b002ddce3a8bf8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "aee2df6b02ea12cb",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "g": "4c6743f249067968",
-        "name": "true",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 150,
-        "y": 680,
-        "wires": [
-            [
-                "a3206be9cb219e6f"
-            ]
-        ]
-    },
-    {
-        "id": "a3206be9cb219e6f",
-        "type": "change",
-        "z": "a1c7ea549b32dfc9",
-        "g": "4c6743f249067968",
-        "name": "cloud_broker",
-        "rules": [
-            {
-                "t": "set",
-                "p": "cloud_broker",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 700,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "922be1c52ff787bb",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "g": "4c6743f249067968",
-        "name": "false",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 150,
-        "y": 720,
-        "wires": [
-            [
-                "a3206be9cb219e6f"
-            ]
-        ]
-    },
-    {
-        "id": "8c259c144bc281fb",
-        "type": "switch",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "cloud_broker",
-        "property": "cloud_broker",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 290,
-        "y": 180,
-        "wires": [
-            [
-                "f8c85e619c304aa7"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "261a538fbeadf292",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "test",
-        "payloadType": "str",
-        "x": 560,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b5b84c4dc25cb57a",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "name": "connect",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "action",
-                "v": "connect",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 540,
-        "y": 720,
-        "wires": [
-            [
-                "607b6ef23da30da8"
-            ]
-        ]
-    },
-    {
-        "id": "673965a2345b199f",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "name": "disconnect",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "action",
-                "v": "disconnect",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "0.6",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 560,
-        "y": 760,
-        "wires": [
-            [
-                "607b6ef23da30da8"
-            ]
-        ]
-    },
-    {
-        "id": "47e186f2aaa312de",
-        "type": "change",
-        "z": "a1c7ea549b32dfc9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "action",
-                "pt": "msg",
-                "to": "connect",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.broker",
-                "pt": "msg",
-                "to": "bca204074b3740d684ea0a81bae5b858.s1.eu.hivemq.cloud",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.port",
-                "pt": "msg",
-                "to": "8883",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "broker.username",
-                "pt": "msg",
-                "to": "JKBMS-user",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.password",
-                "pt": "msg",
-                "to": "JKBMS-user2025",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 800,
-        "wires": [
-            [
-                "b983cc7fa5816269",
-                "607b6ef23da30da8"
-            ]
-        ]
-    },
-    {
-        "id": "133563f26b6efdf1",
-        "type": "inject",
-        "z": "a1c7ea549b32dfc9",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 560,
-        "y": 800,
-        "wires": [
-            [
-                "47e186f2aaa312de"
-            ]
-        ]
-    },
-    {
-        "id": "b983cc7fa5816269",
-        "type": "debug",
-        "z": "a1c7ea549b32dfc9",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "d386b48ee50d7d13",
-        "type": "function",
-        "z": "a1c7ea549b32dfc9",
-        "name": "function 2",
-        "func": "// Affichage des valeurs avec leur taille\nnode.log(\"Username: '\" + msg.broker.username + \"' (length: \" + msg.broker.username.length + \")\");\nnode.log(\"Password: '\" + msg.broker.password + \"' (length: \" + msg.broker.password.length + \")\");\n\n// Affichage caractère par caractère pour voir les caractères invisibles\nnode.log(\"Username chars: \" + JSON.stringify(msg.broker.username.split('')));\nnode.log(\"Password chars: \" + JSON.stringify(msg.broker.password.split('')));\n\n// Retourner le message sans modification\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 860,
-        "wires": [
-            [
-                "2410c277457f1f76"
-            ]
-        ]
-    },
-    {
-        "id": "2410c277457f1f76",
-        "type": "debug",
-        "z": "a1c7ea549b32dfc9",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 560,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "607b6ef23da30da8",
-        "type": "mqtt out",
-        "z": "a1c7ea549b32dfc9",
-        "name": "Cloud MQTT Broker",
-        "topic": "",
-        "qos": "0",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "79bd9f312e074d8e",
-        "x": 780,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "f8c85e619c304aa7",
-        "type": "change",
-        "z": "a1c7ea549b32dfc9",
-        "g": "c2c511b3522ee8b0",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "action",
-                "pt": "msg",
-                "to": "connect",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.broker",
-                "pt": "msg",
-                "to": "bca204074b3740d684ea0a81bae5b858.s1.eu.hivemq.cloud",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.port",
-                "pt": "msg",
-                "to": "8883",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "broker.username",
-                "pt": "msg",
-                "to": "JKBMS-user",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "broker.password",
-                "pt": "msg",
-                "to": "JKBMS-user2025",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 180,
-        "wires": [
-            [
-                "e9140fbdd804c122",
-                "fc6a7dbdb2978cae"
             ]
         ]
     },
@@ -1959,15 +1319,35 @@
         "correl": "",
         "expiry": "",
         "broker": "79bd9f312e074d8e",
-        "x": 720,
+        "x": 620,
         "y": 140,
         "wires": []
     },
     {
-        "id": "ce539e2ec9dc2a3b",
+        "id": "b372af83215826ef",
+        "type": "mqtt out",
+        "z": "a1c7ea549b32dfc9",
+        "g": "6d8a2197f9b79fe1",
+        "name": "Cloud MQTT Broker",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "79bd9f312e074d8e",
+        "x": 600,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8786546418b5a32c",
         "type": "change",
         "z": "a1c7ea549b32dfc9",
-        "name": "Prep. Broker Input",
+        "g": "c2c511b3522ee8b0",
+        "name": "",
         "rules": [
             {
                 "t": "set",
@@ -2010,40 +1390,54 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
-        "y": 860,
+        "x": 360,
+        "y": 180,
         "wires": [
-            []
+            [
+                "e9140fbdd804c122"
+            ]
         ]
     },
     {
-        "id": "b372af83215826ef",
-        "type": "mqtt out",
+        "id": "f7d1fb6492be025f",
+        "type": "inject",
         "z": "a1c7ea549b32dfc9",
         "g": "6d8a2197f9b79fe1",
-        "name": "Cloud MQTT Broker",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
         "topic": "",
-        "qos": "0",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "79bd9f312e074d8e",
-        "x": 600,
-        "y": 520,
-        "wires": []
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "24b002ddce3a8bf8"
+            ]
+        ]
     },
     {
         "id": "3e17af36f9437b17",
         "type": "mqtt in",
         "z": "cae51940ae4cfae7",
+        "g": "53657bce92f7b1ab",
         "name": "Cloud MQTT IN",
         "topic": "device/#",
         "qos": "0",
         "datatype": "auto",
-        "broker": "0f46412e148c8e44",
+        "broker": "79bd9f312e074d8e",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -2061,9 +1455,11 @@
         "id": "96c1c9a46dd9623e",
         "type": "function",
         "z": "cae51940ae4cfae7",
+        "g": "53657bce92f7b1ab",
         "name": "Mapper Discovery/State",
-        "func": "// Découper le topic\nvar parts = msg.topic.split(\"/\");\nif (parts.length < 4) return null;\n\nvar device = parts[1];   // ex: esp32-onduleur\nvar entity = parts[2];   // ex: tension\nvar type   = parts[3];   // config | state\n\nif (type === \"config\") {\n    var cfg = {};\n    try {\n        cfg = JSON.parse(msg.payload);\n    } catch(e) {\n        node.error(\"Payload config non JSON valide : \" + msg.payload);\n        return null;\n    }\n\n    var discovery_topic = \"homeassistant/\" + cfg.component + \"/\" + device + \"/\" + entity + \"/config\";\n\n    cfg = Object.assign(cfg, {\n        state_topic: \"device/\" + device + \"/\" + entity + \"/state\",\n        command_topic: \"device/\" + device + \"/\" + entity + \"/set\",\n        unique_id: device + \"_\" + entity,\n        device: { identifiers: [device], name: device }\n    });\n\n    return { topic: discovery_topic, payload: JSON.stringify(cfg), retain: true };\n}\n\nif (type === \"state\") {\n    return { topic: \"device/\" + device + \"/\" + entity + \"/state\", payload: msg.payload, retain: false };\n}\n\nreturn null;",
+        "func": "// Découper le topic\nvar parts = msg.topic.split(\"/\");\nif (parts.length < 4) return null;\n\nvar device = parts[1];   // ex: device name\nvar entity = parts[2];   // ex: tension\nvar type   = parts[3];   // config | state\n\nif (type === \"config\") {\n    var cfg = {};\n    try {\n        cfg = JSON.parse(msg.payload);\n    } catch(e) {\n        node.error(\"Payload config non JSON valide : \" + msg.payload);\n        return null;\n    }\n\n    var discovery_topic = \"homeassistant/\" + cfg.component + \"/\" + device + \"/\" + entity + \"/config\";\n\n    cfg = Object.assign(cfg, {\n        state_topic: \"device/\" + device + \"/\" + entity + \"/state\",\n        command_topic: \"device/\" + device + \"/\" + entity + \"/set\",\n        unique_id: device + \"_\" + entity,\n        device: { identifiers: [device], name: device }\n    });\n\n    return { topic: discovery_topic, payload: JSON.stringify(cfg), retain: true };\n}\n\nif (type === \"state\") {\n    return { topic: \"device/\" + device + \"/\" + entity + \"/state\", payload: msg.payload, retain: false };\n}\n\nreturn null;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -2081,6 +1477,7 @@
         "id": "9d14c08ce76587a6",
         "type": "mqtt out",
         "z": "cae51940ae4cfae7",
+        "g": "53657bce92f7b1ab",
         "name": "Local MQTT out",
         "topic": "",
         "qos": "",
@@ -2099,6 +1496,7 @@
         "id": "a1f84e21acec3079",
         "type": "debug",
         "z": "cae51940ae4cfae7",
+        "g": "53657bce92f7b1ab",
         "name": "debug 8",
         "active": false,
         "tosidebar": true,
@@ -2116,6 +1514,7 @@
         "id": "7f9fde987a42e6ec",
         "type": "debug",
         "z": "cae51940ae4cfae7",
+        "g": "53657bce92f7b1ab",
         "name": "debug 9",
         "active": false,
         "tosidebar": true,
