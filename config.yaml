@@ -45,6 +45,7 @@ options:
   cloud_broker_user: "username"
   cloud_broker_pass: "password"
   cloud_HA_long_term_access_tokens: "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  haos_url: "http://homeassistant:8123"
 
 schema:
   # MQTT Configuration
@@ -58,3 +59,4 @@ schema:
   cloud_broker_user: str?
   cloud_broker_pass: password?
   cloud_HA_long_term_access_tokens: str?
+  haos_url: str?

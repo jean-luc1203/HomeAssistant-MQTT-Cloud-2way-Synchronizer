@@ -29,3 +29,8 @@ configuration:
   cloud_HA_long_term_access_tokens:
     name: "✴️ HA Long-term Access Token"
     description: "Persistent token created in the <HA-User-Security> menu. Allows the addon to communicate with the HA API."
+
+  haos_url:
+    name: "✴️ URL for your personal HAOS"
+    description: "the URL you use to access your Home Assistant interface. It may be, for example, in the form https://yourHAOS.duckdns.org"
+

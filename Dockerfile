@@ -26,13 +26,13 @@ RUN \
         nginx \
 		nodejs \
 		npm \
-        openssh-client \
-        patch \
-        can-utils \
-        iproute2 \
+#        openssh-client \
+#        patch \
+#        can-utils \
+#        iproute2 \
         bash \
-        mosquitto-clients \
-    \
+#        mosquitto-clients \
+#    \
 
     && npm config set fetch-timeout 300000 \
     && npm config set fetch-retry-mintimeout 20000 \
@@ -48,11 +48,11 @@ RUN \
         --fetch-timeout=300000 \
         --fetch-retry-mintimeout=20000 \
         --fetch-retry-maxtimeout=120000 \
-    && npm rebuild --build-from-source @serialport/bindings-cpp \
+##    && npm rebuild --build-from-source @serialport/bindings-cpp \
     \
     && npm cache clear --force \
     \
-    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
+##    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
     \
 #    && patch -d /opt/node_modules/node-red-dashboard -p1 \
 #             -i /tmp/node-red-dashboard-show-dashboard.patch \
@@ -79,7 +79,7 @@ COPY configentities_list.json /opt/configentities_list.json
 
 # Health check
 HEALTHCHECK --start-period=10m \
-    CMD curl --fail http://127.0.0.1:1891 || exit 1
+    CMD curl --fail http://127.0.0.1:1892 || exit 1
 
 # Build arguments
 ARG BUILD_ARCH

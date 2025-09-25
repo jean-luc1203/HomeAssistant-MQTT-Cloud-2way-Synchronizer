@@ -29,3 +29,7 @@ configuration:
   cloud_HA_long_term_access_tokens:
     name: "✴️ HA Jeton d'accès long terme"
     description: "Jeton persistant créé dans le menu <HA-Utilisateur-Sécurité>. Permet à l'addon de communiquer avec l'API HA."
+
+  haos_url:
+    name: "✴️ URL pour votre HAOS personnel"
+    description: "l'URL avec laquelle vous accédez votre interface Home Assistant. Il peut être par exemple de la forme https://yourHAOS.duckdns.org"

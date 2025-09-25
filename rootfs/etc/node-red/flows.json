@@ -993,7 +993,7 @@
         "z": "b1ca67b21089b915",
         "g": "c8e26f4ca5e76e36",
         "name": "traitement des variables",
-        "func": "// Récupération des données du payload\nconst data = msg.payload;\n\n// Fonction pour traiter les champs contenant \":\"\nfunction processAddressPortFields(data) {\n    const processedData = {...data}; // Copie de l'objet original\n    \n    // Liste des champs à traiter (ceux qui peuvent contenir adresse:port)\n    const fieldsToProcess = [\n        { field: 'gateway_ip_port', addressField: 'gateway_ip', portField: 'gateway_port' },\n        { field: 'mqttadresse_port', addressField: 'mqttadresse', portField: 'mqttport' },\n        { field: 'cloud_broker_adress_port', addressField: 'cloud_broker_adress', portField: 'cloud_broker_port' }\n    ];\n    \n    fieldsToProcess.forEach(config => {\n        if (processedData[config.field] && typeof processedData[config.field] === 'string') {\n            const value = processedData[config.field];\n            \n            // Vérifier si le champ contient \":\"\n            if (value.includes(':')) {\n                const lastColonIndex = value.lastIndexOf(':'); // Utilise le dernier \":\" pour gérer les IPv6\n                const address = value.substring(0, lastColonIndex);\n                const port = value.substring(lastColonIndex + 1);\n                \n                // Ajouter les champs séparés\n                processedData[config.addressField] = address;\n                processedData[config.portField] = parseInt(port, 10);\n                \n                node.log(`Champ '${config.field}' traité: ${address}:${port}`);\n            }\n            \n            // Supprimer le champ original avec \"_port\" \n            delete processedData[config.field];\n        }\n    });\n    \n    return processedData;\n}\n\n// Extraction et stockage des variables globales\ntry {\n    // Traitement préalable des champs avec \":\"\n    const processedData = processAddressPortFields(data);\n    \n    // Paramètres MQTT\n    if (processedData.mqttadresse) {\n        global.set(\"mqttadresse\", processedData.mqttadresse);\n        node.log(\"Variable globale 'mqttadresse' = \" + processedData.mqttadresse);\n    }\n    \n    if (processedData.mqttport) {\n        global.set(\"mqttport\", processedData.mqttport);\n        node.log(\"Variable globale 'mqttport' = \" + processedData.mqttport);\n    }\n    \n    if (processedData.mqttuser) {\n        global.set(\"mqttuser\", processedData.mqttuser);\n        node.log(\"Variable globale 'mqttuser' = \" + processedData.mqttuser);\n    }\n    \n    if (processedData.mqttpass) {\n        global.set(\"mqttpass\", processedData.mqttpass);\n        node.log(\"Variable globale 'mqttpass' = \" + processedData.mqttpass);\n    }\n\n    // Configuration Cloud Broker\n    if (processedData.cloud_broker !== undefined) {\n        global.set(\"cloud_broker\", processedData.cloud_broker);\n        node.log(\"Variable globale 'cloud_broker' = \" + processedData.cloud_broker);\n    }\n    \n    if (processedData.cloud_broker_adress) {\n        global.set(\"cloud_broker_adress\", processedData.cloud_broker_adress);\n        node.log(\"Variable globale 'cloud_broker_adress' = \" + processedData.cloud_broker_adress);\n    }\n    \n    if (processedData.cloud_broker_port) {\n        global.set(\"cloud_broker_port\", processedData.cloud_broker_port);\n        node.log(\"Variable globale 'cloud_broker_port' = \" + processedData.cloud_broker_port);\n    }\n    \n    if (processedData.cloud_broker_user) {\n        global.set(\"cloud_broker_user\", processedData.cloud_broker_user);\n        node.log(\"Variable globale 'cloud_broker_user' = \" + processedData.cloud_broker_user);\n    }\n    \n    if (processedData.cloud_broker_pass) {\n        global.set(\"cloud_broker_pass\", processedData.cloud_broker_pass);\n        node.log(\"Variable globale 'cloud_broker_pass' = \" + processedData.cloud_broker_pass);\n    }\n    \n    if (processedData.cloud_HA_long_term_access_tokens) {\n        global.set(\"cloud_HA_long_term_access_tokens\", processedData.cloud_HA_long_term_access_tokens);\n        node.log(\"Variable globale 'cloud_HA_long_term_access_tokens' = \" + processedData.cloud_HA_long_term_access_tokens);\n    }\n\n    // Message de confirmation\n    msg.payload = {\n        status: \"success\",\n        message: \"Variables globales créées avec succès\",\n        variables: {\n            mqttadresse: global.get(\"mqttadresse\"),\n            mqttport: global.get(\"mqttport\"),\n            mqttuser: global.get(\"mqttuser\"),\n            mqttpass: global.get(\"mqttpass\"),\n            cloud_broker_adress: global.get(\"cloud_broker_adress\"),\n            cloud_broker_port: global.get(\"cloud_broker_port\"),\n            cloud_broker_user: global.get(\"cloud_broker_user\"),\n            cloud_broker_pass: global.get(\"cloud_broker_pass\"),\n            cloud_HA_long_term_access_tokens: global.get(\"cloud_HA_long_term_access_tokens\")\n        },\n        processedData: processedData // Pour debugging\n    };\n\n} catch (error) {\n    node.error(\"Erreur lors de la création des variables globales: \" + error.message);\n    msg.payload = {\n        status: \"error\",\n        message: error.message\n    };\n}\n\nreturn msg;",
+        "func": "// Récupération des données du payload\nconst data = msg.payload;\n\n// Fonction pour traiter les champs contenant \":\"\nfunction processAddressPortFields(data) {\n    const processedData = {...data}; // Copie de l'objet original\n    \n    // Liste des champs à traiter (ceux qui peuvent contenir adresse:port)\n    const fieldsToProcess = [\n        { field: 'mqttadresse_port', addressField: 'mqttadresse', portField: 'mqttport' },\n        { field: 'cloud_broker_adress_port', addressField: 'cloud_broker_adress', portField: 'cloud_broker_port' }\n    ];\n    \n    fieldsToProcess.forEach(config => {\n        if (processedData[config.field] && typeof processedData[config.field] === 'string') {\n            const value = processedData[config.field];\n            \n            // Vérifier si le champ contient \":\"\n            if (value.includes(':')) {\n                const lastColonIndex = value.lastIndexOf(':'); // Utilise le dernier \":\" pour gérer les IPv6\n                const address = value.substring(0, lastColonIndex);\n                const port = value.substring(lastColonIndex + 1);\n                \n                // Ajouter les champs séparés\n                processedData[config.addressField] = address;\n                processedData[config.portField] = parseInt(port, 10);\n                \n                node.log(`Champ '${config.field}' traité: ${address}:${port}`);\n            }\n            \n            // Supprimer le champ original avec \"_port\" \n            delete processedData[config.field];\n        }\n    });\n    \n    return processedData;\n}\n\n// Extraction et stockage des variables globales\ntry {\n    // Traitement préalable des champs avec \":\"\n    const processedData = processAddressPortFields(data);\n    \n    // Paramètres MQTT\n    if (processedData.mqttadresse) {\n        global.set(\"mqttadresse\", processedData.mqttadresse);\n        node.log(\"Variable globale 'mqttadresse' = \" + processedData.mqttadresse);\n    }\n    \n    if (processedData.mqttport) {\n        global.set(\"mqttport\", processedData.mqttport);\n        node.log(\"Variable globale 'mqttport' = \" + processedData.mqttport);\n    }\n    \n    if (processedData.mqttuser) {\n        global.set(\"mqttuser\", processedData.mqttuser);\n        node.log(\"Variable globale 'mqttuser' = \" + processedData.mqttuser);\n    }\n    \n    if (processedData.mqttpass) {\n        global.set(\"mqttpass\", processedData.mqttpass);\n        node.log(\"Variable globale 'mqttpass' = \" + processedData.mqttpass);\n    }\n\n    // Configuration Cloud Broker\n    if (processedData.cloud_broker !== undefined) {\n        global.set(\"cloud_broker\", processedData.cloud_broker);\n        node.log(\"Variable globale 'cloud_broker' = \" + processedData.cloud_broker);\n    }\n    \n    if (processedData.cloud_broker_adress) {\n        global.set(\"cloud_broker_adress\", processedData.cloud_broker_adress);\n        node.log(\"Variable globale 'cloud_broker_adress' = \" + processedData.cloud_broker_adress);\n    }\n    \n    if (processedData.cloud_broker_port) {\n        global.set(\"cloud_broker_port\", processedData.cloud_broker_port);\n        node.log(\"Variable globale 'cloud_broker_port' = \" + processedData.cloud_broker_port);\n    }\n    \n    if (processedData.cloud_broker_user) {\n        global.set(\"cloud_broker_user\", processedData.cloud_broker_user);\n        node.log(\"Variable globale 'cloud_broker_user' = \" + processedData.cloud_broker_user);\n    }\n    \n    if (processedData.cloud_broker_pass) {\n        global.set(\"cloud_broker_pass\", processedData.cloud_broker_pass);\n        node.log(\"Variable globale 'cloud_broker_pass' = \" + processedData.cloud_broker_pass);\n    }\n    \n    if (processedData.cloud_HA_long_term_access_tokens) {\n        global.set(\"cloud_HA_long_term_access_tokens\", processedData.cloud_HA_long_term_access_tokens);\n        node.log(\"Variable globale 'cloud_HA_long_term_access_tokens' = \" + processedData.cloud_HA_long_term_access_tokens);\n    }\n\n    if (processedData.haos_url) {\n        global.set(\"haos_url\", processedData.haos_url);\n        node.log(\"Variable globale 'haos_url' = \" + processedData.haos_url);\n    }\n\n    // Message de confirmation\n    msg.payload = {\n        status: \"success\",\n        message: \"Variables globales créées avec succès\",\n        variables: {\n            mqttadresse: global.get(\"mqttadresse\"),\n            mqttport: global.get(\"mqttport\"),\n            mqttuser: global.get(\"mqttuser\"),\n            mqttpass: global.get(\"mqttpass\"),\n            cloud_broker_adress: global.get(\"cloud_broker_adress\"),\n            cloud_broker_port: global.get(\"cloud_broker_port\"),\n            cloud_broker_user: global.get(\"cloud_broker_user\"),\n            cloud_broker_pass: global.get(\"cloud_broker_pass\"),\n            cloud_HA_long_term_access_tokens: global.get(\"cloud_HA_long_term_access_tokens\"),\n            haos_url: global.get(\"haos_url\")\n        },\n        processedData: processedData // Pour debugging\n    };\n\n} catch (error) {\n    node.error(\"Erreur lors de la création des variables globales: \" + error.message);\n    msg.payload = {\n        status: \"error\",\n        message: error.message\n    };\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1181,7 +1181,7 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://homeassistant:8123/api/states/{{{payload}}}",
+        "url": "{{{payload}}}",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1203,7 +1203,7 @@
         "z": "a1c7ea549b32dfc9",
         "g": "6d8a2197f9b79fe1",
         "name": "Préparer MQTT",
-        "func": "let entity = msg.payload.entity_id;\n\n// Supprimer le préfixe avant le \".\"\nlet shortName = entity.includes(\".\") ? entity.split(\".\")[1] : entity;\n\nmsg.topic = \"jkbms-addon/\" + shortName;\n\n// Conversion du state\nlet val = msg.payload.state;\nif (!isNaN(val)) {\n    // Si c'est un nombre (ex: \"00287\"), on convertit en Number\n    msg.payload = Number(val);\n} else {\n    // Sinon, on garde tel quel (utile pour \"on\", \"off\", \"unknown\", etc.)\n    msg.payload = val;\n}\n\nreturn msg;\n",
+        "func": "let entity = msg.payload.entity_id;\n\n// Supprimer le préfixe avant le \".\"\nlet shortName = entity.includes(\".\") ? entity.split(\".\")[1] : entity;\n\nmsg.topic = \"mqtt-cloud-synchronizer/\" + shortName;\n\n// Conversion du state\nlet val = msg.payload.state;\nif (!isNaN(val)) {\n    // Si c'est un nombre (ex: \"00287\"), on convertit en Number\n    msg.payload = Number(val);\n} else {\n    // Sinon, on garde tel quel (utile pour \"on\", \"off\", \"unknown\", etc.)\n    msg.payload = val;\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -1289,7 +1289,7 @@
         "z": "a1c7ea549b32dfc9",
         "g": "6d8a2197f9b79fe1",
         "name": "Prep. Header HTTP",
-        "func": "msg.headers = {};\nmsg.headers['Authorization'] = \"Bearer \" + msg.token;\nreturn msg;",
+        "func": "// Récupération de l'URL de base depuis la variable globale\nvar haos_url = global.get(\"haos_url\") || \"http://homeassistant:8123\";\n\n// Construction de l'URL dynamique\nmsg.payload = haos_url + \"/api/states/\" + msg.payload;\n\n// Préparation des headers d'autorisation\nmsg.headers = {};\nmsg.headers['Authorization'] = \"Bearer \" + msg.token;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1426,6 +1426,60 @@
             [
                 "24b002ddce3a8bf8"
             ]
+        ]
+    },
+    {
+        "id": "eea824d05526b209",
+        "type": "inject",
+        "z": "a1c7ea549b32dfc9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 640,
+        "wires": [
+            [
+                "9958c9d5a9f93199"
+            ]
+        ]
+    },
+    {
+        "id": "9958c9d5a9f93199",
+        "type": "change",
+        "z": "a1c7ea549b32dfc9",
+        "name": "Défini haos_url",
+        "rules": [
+            {
+                "t": "set",
+                "p": "haos_url",
+                "pt": "global",
+                "to": "http://homeassistant:8123",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 640,
+        "wires": [
+            []
         ]
     },
     {
