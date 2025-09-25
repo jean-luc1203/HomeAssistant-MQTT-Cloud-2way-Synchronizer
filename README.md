@@ -1,5 +1,8 @@
 ## HAOS Encrypted MQTT Cloud Topic Synchronizer
 
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2af12d14-5415-42e7-932d-dd29bc1bd79a" />
+
+
 **<u>Description:</u>**
 
 This HAOS add-on module establishes a secure TLS connection to a cloud MQTT broker. 
@@ -26,6 +29,11 @@ The user can simply organize these entities into custom dashboards for real-time
 
 * One config topic for the autodiscovery HA
 * One state topic for the relatime value
+
+#Schematic diagram
+
+
+
   
 Below, what you can see once you are connected to the Cloud Broker (in my case, HiveMQ):
 
