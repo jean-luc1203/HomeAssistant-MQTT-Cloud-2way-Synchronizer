@@ -1,4 +1,4 @@
 [
-  "sensor.sun_next_noon",
-  "sensor.sun_next_dusk"
+  "update.home_assistant_supervisor_update",
+  "update.home_assistant_operating_system_update"
 ]

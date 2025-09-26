@@ -1,3 +1,17 @@
+## 1.0.1
+
+## 🐞 Bug resolution
+
+Add URL for HAOS dynamic API. Allows use of an HTTPS connection.
+The JSON file for entities is copied correctly if it does not exist.
+The publication topic is set to mqtt-cloud-synchronizer/.
+Miscellaneous. 
+
+## 👀 To do
+
+It remains to be tested whether the file contains entities that do not exist. Handle the absence and do not have an error message in the log.
+
+
 ## 1.0.0
 
 ## ⚡️ Module creation
