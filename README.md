@@ -30,18 +30,32 @@ The user can simply organize these entities into custom dashboards for real-time
 * One config topic for the autodiscovery HA
 * One state topic for the relatime value
 
-#Schematic diagram (click to enlarge)
+---
+**<u>Schematic diagram (click to enlarge)**</u>
 
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/73a619d5-72e6-4fe1-90f6-ef6b881b06c2" />
 
-  
+---
+
 Below, what you can see once you are connected to the Cloud Broker (in my case, HiveMQ):
 
 <img width="597" height="259" alt="image" src="https://github.com/user-attachments/assets/587d1472-ac84-4f31-bf16-4e9fafa251a7" />
 
 Here is what this will automatically create in Home Assistant.
+
 The data is refreshed as soon as it is modified by the source (i.e., the MQTT client).
 
 <img width="986" height="337" alt="image" src="https://github.com/user-attachments/assets/70c4b1de-0665-468a-b6aa-b44468bff202" />
+
+---
+
+**<u>Technical values about the module**</u>
+
+It is written with the help of Node Red V4.1.0
+
+It uses only ~90 Mb of memory and < 1% of CPU.
+
+<img width="1230" height="182" alt="image" src="https://github.com/user-attachments/assets/391596ce-ba62-492a-bb75-1cc9eadb90ce" />
+
 
 
