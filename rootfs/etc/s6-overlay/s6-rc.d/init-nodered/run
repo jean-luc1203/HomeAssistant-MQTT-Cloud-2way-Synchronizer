@@ -24,7 +24,6 @@ fi
 if ! bashio::fs.file_exists '/config/configentities_list.json'; then
     cp /opt/configentities_list.json /config/configentities_list.json \
         || bashio::exit.nok "Failed to copy configentities_list.json"
-    chmod 775 /config/configentities_list.json
     bashio::log.info "configentities_list.json copied to /config/"
 fi
 

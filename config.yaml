@@ -41,7 +41,7 @@ options:
   mqttpass: "password"
 
   # Cloud MQTT Broker Configuration
-  cloud_broker_adress_port: "bca204074b374abvcdefbae5b858.s1.eu.hivemq.cloud:8883"
+  cloud_broker_adress_port: "Your-Cloud-Broker-Adress:8883"
   cloud_broker_user: "username"
   cloud_broker_pass: "password"
   cloud_HA_long_term_access_tokens: "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"

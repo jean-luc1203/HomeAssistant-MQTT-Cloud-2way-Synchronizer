@@ -50,60 +50,6 @@
         "h": 354
     },
     {
-        "id": "6c19eb9e84cdf38b",
-        "type": "group",
-        "z": "b1ca67b21089b915",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "0ec51b6fd8d48038",
-            "84db6ed2a0945bdd",
-            "a0a0d9469406c5a8",
-            "b38da9cc0fe45944",
-            "18be8868fd9888b7",
-            "567fe9a7f3910323",
-            "32d98207bb37887d",
-            "9d3d9cd9d0aaf884",
-            "ea424593a0b6533a",
-            "4a6179de378fa7c5",
-            "6fa5d0c215b7e641",
-            "8bcf0e0b17b0565f"
-        ],
-        "x": 34,
-        "y": 979,
-        "w": 492,
-        "h": 282
-    },
-    {
-        "id": "09c8d74836111377",
-        "type": "group",
-        "z": "b1ca67b21089b915",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "2f1946e570f89af5",
-            "4b621344460ef394"
-        ],
-        "x": 574,
-        "y": 1089.199951171875,
-        "w": 312,
-        "h": 131.800048828125
-    },
-    {
         "id": "c2c511b3522ee8b0",
         "type": "group",
         "z": "a1c7ea549b32dfc9",
@@ -165,12 +111,15 @@
             "24b002ddce3a8bf8",
             "9cb68cad2f001d89",
             "b372af83215826ef",
-            "f7d1fb6492be025f"
+            "f7d1fb6492be025f",
+            "d8b07addad975d6b",
+            "79f775ff18a49702",
+            "f88d00836b4438a6"
         ],
         "x": 14,
         "y": 359,
-        "w": 892,
-        "h": 182
+        "w": 1072,
+        "h": 242
     },
     {
         "id": "53657bce92f7b1ab",
@@ -584,7 +533,7 @@
         "z": "b1ca67b21089b915",
         "g": "c8e26f4ca5e76e36",
         "name": "debug 97",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -596,387 +545,12 @@
         "wires": []
     },
     {
-        "id": "0ec51b6fd8d48038",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1020,
-        "wires": [
-            [
-                "84db6ed2a0945bdd"
-            ]
-        ]
-    },
-    {
-        "id": "84db6ed2a0945bdd",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "GW true ",
-        "rules": [
-            {
-                "t": "set",
-                "p": "use_gateway",
-                "pt": "global",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 320,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a0a0d9469406c5a8",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1060,
-        "wires": [
-            [
-                "b38da9cc0fe45944"
-            ]
-        ]
-    },
-    {
-        "id": "b38da9cc0fe45944",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "GW false ",
-        "rules": [
-            {
-                "t": "set",
-                "p": "use_gateway",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 320,
-        "y": 1060,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "18be8868fd9888b7",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1100,
-        "wires": [
-            [
-                "567fe9a7f3910323"
-            ]
-        ]
-    },
-    {
-        "id": "567fe9a7f3910323",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "BMS Broadcasting ? True",
-        "rules": [
-            {
-                "t": "set",
-                "p": "bms_broadcasting",
-                "pt": "global",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 370,
-        "y": 1100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "32d98207bb37887d",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1140,
-        "wires": [
-            [
-                "9d3d9cd9d0aaf884"
-            ]
-        ]
-    },
-    {
-        "id": "9d3d9cd9d0aaf884",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "BMS Broadcasting ? False",
-        "rules": [
-            {
-                "t": "set",
-                "p": "bms_broadcasting",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2f1946e570f89af5",
-        "type": "file",
-        "z": "b1ca67b21089b915",
-        "g": "09c8d74836111377",
-        "name": "",
-        "filename": "/config/temp/broadcast-bms.txt",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 730,
-        "y": 1180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4b621344460ef394",
-        "type": "function",
-        "z": "b1ca67b21089b915",
-        "g": "09c8d74836111377",
-        "name": "debug en hexa",
-        "func": "// Vérifie que le payload est un Buffer\nif (Buffer.isBuffer(msg.payload)) {\n    // Convertit chaque octet en hexadécimal sur 2 chiffres\n    msg.payload = msg.payload\n        .toString('hex')                // Convertit tout le buffer en une chaîne hexadécimale continue\n        .match(/.{1,2}/g)               // Coupe la chaîne tous les 2 caractères\n        .join(' ') + '\\n';              // Ajoute un espace entre chaque octet et un retour à la ligne\n} else if (Array.isArray(msg.payload)) {\n    // Si c'est un tableau, on le traite aussi\n    msg.payload = msg.payload\n        .map(x => x.toString(16).padStart(2, '0'))\n        .join(' ') + '\\n';\n} else {\n    // Sinon, on ne fait rien ou on peut lever une erreur\n    msg.payload = 'Payload non reconnu\\n';\n}\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 682.2000122070312,
-        "y": 1130.199951171875,
-        "wires": [
-            [
-                "2f1946e570f89af5"
-            ]
-        ]
-    },
-    {
-        "id": "ea424593a0b6533a",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1180,
-        "wires": [
-            [
-                "4a6179de378fa7c5"
-            ]
-        ]
-    },
-    {
-        "id": "4a6179de378fa7c5",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "communication_debug true ",
-        "rules": [
-            {
-                "t": "set",
-                "p": "communication_debug",
-                "pt": "global",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 1180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6fa5d0c215b7e641",
-        "type": "inject",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1220,
-        "wires": [
-            [
-                "8bcf0e0b17b0565f"
-            ]
-        ]
-    },
-    {
-        "id": "8bcf0e0b17b0565f",
-        "type": "change",
-        "z": "b1ca67b21089b915",
-        "g": "6c19eb9e84cdf38b",
-        "name": "communication_debug false ",
-        "rules": [
-            {
-                "t": "set",
-                "p": "communication_debug",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 1220,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "b122ec506872171a",
         "type": "debug",
         "z": "b1ca67b21089b915",
         "g": "c8e26f4ca5e76e36",
         "name": "debug 4",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -993,7 +567,7 @@
         "z": "b1ca67b21089b915",
         "g": "c8e26f4ca5e76e36",
         "name": "traitement des variables",
-        "func": "// Récupération des données du payload\nconst data = msg.payload;\n\n// Fonction pour traiter les champs contenant \":\"\nfunction processAddressPortFields(data) {\n    const processedData = {...data}; // Copie de l'objet original\n    \n    // Liste des champs à traiter (ceux qui peuvent contenir adresse:port)\n    const fieldsToProcess = [\n        { field: 'mqttadresse_port', addressField: 'mqttadresse', portField: 'mqttport' },\n        { field: 'cloud_broker_adress_port', addressField: 'cloud_broker_adress', portField: 'cloud_broker_port' }\n    ];\n    \n    fieldsToProcess.forEach(config => {\n        if (processedData[config.field] && typeof processedData[config.field] === 'string') {\n            const value = processedData[config.field];\n            \n            // Vérifier si le champ contient \":\"\n            if (value.includes(':')) {\n                const lastColonIndex = value.lastIndexOf(':'); // Utilise le dernier \":\" pour gérer les IPv6\n                const address = value.substring(0, lastColonIndex);\n                const port = value.substring(lastColonIndex + 1);\n                \n                // Ajouter les champs séparés\n                processedData[config.addressField] = address;\n                processedData[config.portField] = parseInt(port, 10);\n                \n                node.log(`Champ '${config.field}' traité: ${address}:${port}`);\n            }\n            \n            // Supprimer le champ original avec \"_port\" \n            delete processedData[config.field];\n        }\n    });\n    \n    return processedData;\n}\n\n// Extraction et stockage des variables globales\ntry {\n    // Traitement préalable des champs avec \":\"\n    const processedData = processAddressPortFields(data);\n    \n    // Paramètres MQTT\n    if (processedData.mqttadresse) {\n        global.set(\"mqttadresse\", processedData.mqttadresse);\n        node.log(\"Variable globale 'mqttadresse' = \" + processedData.mqttadresse);\n    }\n    \n    if (processedData.mqttport) {\n        global.set(\"mqttport\", processedData.mqttport);\n        node.log(\"Variable globale 'mqttport' = \" + processedData.mqttport);\n    }\n    \n    if (processedData.mqttuser) {\n        global.set(\"mqttuser\", processedData.mqttuser);\n        node.log(\"Variable globale 'mqttuser' = \" + processedData.mqttuser);\n    }\n    \n    if (processedData.mqttpass) {\n        global.set(\"mqttpass\", processedData.mqttpass);\n        node.log(\"Variable globale 'mqttpass' = \" + processedData.mqttpass);\n    }\n\n    // Configuration Cloud Broker\n    if (processedData.cloud_broker !== undefined) {\n        global.set(\"cloud_broker\", processedData.cloud_broker);\n        node.log(\"Variable globale 'cloud_broker' = \" + processedData.cloud_broker);\n    }\n    \n    if (processedData.cloud_broker_adress) {\n        global.set(\"cloud_broker_adress\", processedData.cloud_broker_adress);\n        node.log(\"Variable globale 'cloud_broker_adress' = \" + processedData.cloud_broker_adress);\n    }\n    \n    if (processedData.cloud_broker_port) {\n        global.set(\"cloud_broker_port\", processedData.cloud_broker_port);\n        node.log(\"Variable globale 'cloud_broker_port' = \" + processedData.cloud_broker_port);\n    }\n    \n    if (processedData.cloud_broker_user) {\n        global.set(\"cloud_broker_user\", processedData.cloud_broker_user);\n        node.log(\"Variable globale 'cloud_broker_user' = \" + processedData.cloud_broker_user);\n    }\n    \n    if (processedData.cloud_broker_pass) {\n        global.set(\"cloud_broker_pass\", processedData.cloud_broker_pass);\n        node.log(\"Variable globale 'cloud_broker_pass' = \" + processedData.cloud_broker_pass);\n    }\n    \n    if (processedData.cloud_HA_long_term_access_tokens) {\n        global.set(\"cloud_HA_long_term_access_tokens\", processedData.cloud_HA_long_term_access_tokens);\n        node.log(\"Variable globale 'cloud_HA_long_term_access_tokens' = \" + processedData.cloud_HA_long_term_access_tokens);\n    }\n\n    if (processedData.haos_url) {\n        global.set(\"haos_url\", processedData.haos_url);\n        node.log(\"Variable globale 'haos_url' = \" + processedData.haos_url);\n    }\n\n    // Message de confirmation\n    msg.payload = {\n        status: \"success\",\n        message: \"Variables globales créées avec succès\",\n        variables: {\n            mqttadresse: global.get(\"mqttadresse\"),\n            mqttport: global.get(\"mqttport\"),\n            mqttuser: global.get(\"mqttuser\"),\n            mqttpass: global.get(\"mqttpass\"),\n            cloud_broker_adress: global.get(\"cloud_broker_adress\"),\n            cloud_broker_port: global.get(\"cloud_broker_port\"),\n            cloud_broker_user: global.get(\"cloud_broker_user\"),\n            cloud_broker_pass: global.get(\"cloud_broker_pass\"),\n            cloud_HA_long_term_access_tokens: global.get(\"cloud_HA_long_term_access_tokens\"),\n            haos_url: global.get(\"haos_url\")\n        },\n        processedData: processedData // Pour debugging\n    };\n\n} catch (error) {\n    node.error(\"Erreur lors de la création des variables globales: \" + error.message);\n    msg.payload = {\n        status: \"error\",\n        message: error.message\n    };\n}\n\nreturn msg;",
+        "func": "// Récupération des données du payload\nconst data = msg.payload;\n\n// Fonction pour traiter les champs contenant \":\"\nfunction processAddressPortFields(data) {\n    const processedData = {...data}; // Copie de l'objet original\n    \n    // Liste des champs à traiter (ceux qui peuvent contenir adresse:port)\n    const fieldsToProcess = [\n        { field: 'mqttadresse_port', addressField: 'mqttadresse', portField: 'mqttport' },\n        { field: 'cloud_broker_adress_port', addressField: 'cloud_broker_adress', portField: 'cloud_broker_port' }\n    ];\n    \n    fieldsToProcess.forEach(config => {\n        if (processedData[config.field] && typeof processedData[config.field] === 'string') {\n            const value = processedData[config.field];\n            \n            // Vérifier si le champ contient \":\"\n            if (value.includes(':')) {\n                const lastColonIndex = value.lastIndexOf(':'); // Utilise le dernier \":\" pour gérer les IPv6\n                const address = value.substring(0, lastColonIndex);\n                const port = value.substring(lastColonIndex + 1);\n                \n                // Ajouter les champs séparés\n                processedData[config.addressField] = address;\n                processedData[config.portField] = parseInt(port, 10);\n                \n                node.log(`Champ '${config.field}' traité: ${address}:${port}`);\n            }\n            \n            // Supprimer le champ original avec \"_port\" \n            delete processedData[config.field];\n        }\n    });\n    \n    return processedData;\n}\n\n// Extraction et stockage des variables globales\ntry {\n    // Traitement préalable des champs avec \":\"\n    const processedData = processAddressPortFields(data);\n    \n    // Paramètres MQTT\n    if (processedData.mqttadresse) {\n        global.set(\"mqttadresse\", processedData.mqttadresse);\n        node.log(\"Variable globale 'mqttadresse' = \" + processedData.mqttadresse);\n    }\n    \n    if (processedData.mqttport) {\n        global.set(\"mqttport\", processedData.mqttport);\n        node.log(\"Variable globale 'mqttport' = \" + processedData.mqttport);\n    }\n    \n    if (processedData.mqttuser) {\n        global.set(\"mqttuser\", processedData.mqttuser);\n        node.log(\"Variable globale 'mqttuser' = \" + processedData.mqttuser);\n    }\n    \n    if (processedData.mqttpass) {\n        global.set(\"mqttpass\", processedData.mqttpass);\n        node.log(\"Variable globale 'mqttpass' = \" + processedData.mqttpass);\n    }\n\n    // Configuration Cloud Broker\n    if (processedData.cloud_broker !== undefined) {\n        global.set(\"cloud_broker\", processedData.cloud_broker);\n        node.log(\"Variable globale 'cloud_broker' = \" + processedData.cloud_broker);\n    }\n    \n    if (processedData.cloud_broker_adress) {\n        global.set(\"cloud_broker_adress\", processedData.cloud_broker_adress);\n        node.log(\"Variable globale 'cloud_broker_adress' = \" + processedData.cloud_broker_adress);\n    }\n    \n    if (processedData.cloud_broker_port) {\n        global.set(\"cloud_broker_port\", processedData.cloud_broker_port);\n        node.log(\"Variable globale 'cloud_broker_port' = \" + processedData.cloud_broker_port);\n    }\n    \n    if (processedData.cloud_broker_user) {\n        global.set(\"cloud_broker_user\", processedData.cloud_broker_user);\n        node.log(\"Variable globale 'cloud_broker_user' = \" + processedData.cloud_broker_user);\n    }\n    \n    if (processedData.cloud_broker_pass) {\n        global.set(\"cloud_broker_pass\", processedData.cloud_broker_pass);\n//        node.log(\"Variable globale 'cloud_broker_pass' = \" + processedData.cloud_broker_pass);\n        node.log(\"Variable globale 'cloud_broker_pass' = Hidden password\");\n\n    }\n    \n    if (processedData.cloud_HA_long_term_access_tokens) {\n        global.set(\"cloud_HA_long_term_access_tokens\", processedData.cloud_HA_long_term_access_tokens);\n        node.log(\"Variable globale 'cloud_HA_long_term_access_tokens' = \" + processedData.cloud_HA_long_term_access_tokens);\n    }\n\n    if (processedData.haos_url) {\n        global.set(\"haos_url\", processedData.haos_url);\n        node.log(\"Variable globale 'haos_url' = \" + processedData.haos_url);\n    }\n\n    // Message de confirmation\n    msg.payload = {\n        status: \"success\",\n        message: \"Variables globales créées avec succès\",\n        variables: {\n            mqttadresse: global.get(\"mqttadresse\"),\n            mqttport: global.get(\"mqttport\"),\n            mqttuser: global.get(\"mqttuser\"),\n            mqttpass: global.get(\"mqttpass\"),\n            cloud_broker_adress: global.get(\"cloud_broker_adress\"),\n            cloud_broker_port: global.get(\"cloud_broker_port\"),\n            cloud_broker_user: global.get(\"cloud_broker_user\"),\n            cloud_broker_pass: global.get(\"cloud_broker_pass\"),\n            cloud_HA_long_term_access_tokens: global.get(\"cloud_HA_long_term_access_tokens\"),\n            haos_url: global.get(\"haos_url\")\n        },\n        processedData: processedData // Pour debugging\n    };\n\n} catch (error) {\n    node.error(\"Erreur lors de la création des variables globales: \" + error.message);\n    msg.payload = {\n        status: \"error\",\n        message: error.message\n    };\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1084,9 +658,9 @@
         "type": "inject",
         "z": "a1c7ea549b32dfc9",
         "g": "b3b9f5f06f6d39ed",
-        "name": "60's",
+        "name": "30's",
         "props": [],
-        "repeat": "60",
+        "repeat": "30",
         "crontab": "",
         "once": true,
         "onceDelay": 2,
@@ -1193,7 +767,7 @@
         "y": 500,
         "wires": [
             [
-                "ba41b00845d7113a"
+                "d8b07addad975d6b"
             ]
         ]
     },
@@ -1210,7 +784,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
+        "x": 700,
         "y": 500,
         "wires": [
             [
@@ -1338,7 +912,7 @@
         "correl": "",
         "expiry": "",
         "broker": "79bd9f312e074d8e",
-        "x": 600,
+        "x": 960,
         "y": 500,
         "wires": []
     },
@@ -1429,58 +1003,75 @@
         ]
     },
     {
-        "id": "eea824d05526b209",
-        "type": "inject",
+        "id": "d8b07addad975d6b",
+        "type": "switch",
         "z": "a1c7ea549b32dfc9",
-        "name": "",
-        "props": [
+        "g": "6d8a2197f9b79fe1",
+        "name": "Check return 200 (valide)",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
             {
-                "p": "payload"
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "t": "else"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 260,
-        "y": 640,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 500,
         "wires": [
             [
-                "9958c9d5a9f93199"
+                "ba41b00845d7113a"
+            ],
+            [
+                "79f775ff18a49702"
             ]
         ]
     },
     {
-        "id": "9958c9d5a9f93199",
-        "type": "change",
+        "id": "79f775ff18a49702",
+        "type": "function",
         "z": "a1c7ea549b32dfc9",
-        "name": "Défini haos_url",
-        "rules": [
-            {
-                "t": "set",
-                "p": "haos_url",
-                "pt": "global",
-                "to": "http://homeassistant:8123",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 640,
+        "g": "6d8a2197f9b79fe1",
+        "name": "Error reading entity",
+        "func": "    let message = msg.payload.message;\n    const entity = msg.responseUrl.split('/').pop();\n    node.error(\"Error when reading the entity. Check that it exists into HAOS: \" + entity);\n    node.error(\"Please check into the file named: /homeassistant/configentities_list.json\", msg);\n    msg.payload = {\n        status: \"error\",\n        message: (message + \"-->  \" + entity)\n    };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 560,
         "wires": [
-            []
+            [
+                "f88d00836b4438a6"
+            ]
         ]
+    },
+    {
+        "id": "f88d00836b4438a6",
+        "type": "debug",
+        "z": "a1c7ea549b32dfc9",
+        "g": "6d8a2197f9b79fe1",
+        "name": "URL error",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 560,
+        "wires": []
     },
     {
         "id": "3e17af36f9437b17",

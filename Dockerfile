@@ -26,13 +26,9 @@ RUN \
         nginx \
 		nodejs \
 		npm \
-#        openssh-client \
-#        patch \
-#        can-utils \
-#        iproute2 \
+        openssh-client \
         bash \
-#        mosquitto-clients \
-#    \
+    \
 
     && npm config set fetch-timeout 300000 \
     && npm config set fetch-retry-mintimeout 20000 \
@@ -48,14 +44,11 @@ RUN \
         --fetch-timeout=300000 \
         --fetch-retry-mintimeout=20000 \
         --fetch-retry-maxtimeout=120000 \
-##    && npm rebuild --build-from-source @serialport/bindings-cpp \
+#    && npm rebuild --build-from-source @serialport/bindings-cpp \
     \
     && npm cache clear --force \
     \
-##    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
-    \
-#    && patch -d /opt/node_modules/node-red-dashboard -p1 \
-#             -i /tmp/node-red-dashboard-show-dashboard.patch \
+    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
