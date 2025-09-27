@@ -1,3 +1,10 @@
+## 1.0.2
+
+## 🐞 Bug resolution
+
+Changed permissions on scripts
+
+
 ## 1.0.1
 
 ## 🐞 Bug resolution

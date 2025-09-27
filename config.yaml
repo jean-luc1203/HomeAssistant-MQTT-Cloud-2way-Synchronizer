@@ -1,6 +1,6 @@
 ---
 name: "MQTT TLS bi-directional Cloud Sync"
-version: 1.0.1
+version: 1.0.2
 slug: "mqtt-cloud-synchronizer"
 description: Synchronization between HAOS Entities and MQTT Cloud Broker
 url: https://github.com/jean-luc1203/HomeAssistant-MQTT-Cloud-2way-Synchronizer
