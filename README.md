@@ -55,7 +55,7 @@ It is written with the help of Node Red V4.1.0
 
 It uses only ~90 Mb of memory and < 1% of CPU.
 
-<img width="1230" height="182" alt="image" src="https://github.com/user-attachments/assets/391596ce-ba62-492a-bb75-1cc9eadb90ce" />
+<img width="857" height="146" alt="image" src="https://github.com/user-attachments/assets/ea328f5f-9fb0-4a81-a53d-fe945f1dd639" />
 
 
 
