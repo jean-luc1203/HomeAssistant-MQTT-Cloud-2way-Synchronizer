@@ -1,3 +1,14 @@
+## 1.0.3
+
+## ✴️ Improvements
+
+Added information about the HAOS device created automatically.
+
+<u>The fields:</u>
+
+‘manufacturer’, “model”, ‘sw_version’ are now filled in.
+
+
 ## 1.0.2
 
 ## 🐞 Bug resolution
